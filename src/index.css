@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme {
+
+  /* fonts */
+  --font-display: 'Ubuntu', sans-serif;
+
+  /* primary colors */
+  --color-marineblue: hsl(213, 96%, 18%);
+  --color-blue: hsl(243, 100%, 62%);
+  --color-pastelblue: hsl(228, 100%, 84%);
+  --color-lightblue: hsl(206, 94%, 87%);
+  --color-strawberryred: hsl(354, 84%, 57%);
+
+  /* neutral colors */
+  --color-coolgray: hsl(231, 11%, 63%);
+  --color-lightgray: hsl(229, 24%, 87%);
+  --color-magnolia: hsl(217, 100%, 97%);
+  --color-alabaster: hsl(231, 100%, 99%);
+
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('./assets/fonts/Ubuntu-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('./assets/fonts/Ubuntu-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('./assets/fonts/Ubuntu-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
