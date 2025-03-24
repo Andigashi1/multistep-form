@@ -1,11 +1,11 @@
-import {  useState } from "react";
+import { useState } from "react";
 import { steps } from "./data";
 import Step1 from "./sections/Step1";
 import Step2 from "./sections/Step2";
 import Step3 from "./sections/Step3";
 import Step4 from "./sections/Step4";
 import ThankYou from "./sections/ThankYou";
-import { StepsData, Step1Schema, FormErrors } from "./types";
+import { StepsData, FormErrors } from "./types";
 import { z } from "zod";
 
 const App = () => {
@@ -31,7 +31,7 @@ const App = () => {
   const handleSubmit = () => {
     if (formStep === 0) {
       try {
-        const validatedData = Step1Schema.parse(formData);
+        // const validatedData = Step1Schema.parse(formData);
         setFormStep((prev) => prev + 1);
         setErrors({});
       } catch (error) {
@@ -129,22 +129,24 @@ const App = () => {
         </div>
       </div>
 
-      <div className="md:hidden flex justify-end items-center p-4 mt-auto bg-alabaster">
-        {formStep != 0 && (
+      {!isSubmitted && (
+        <div className="md:hidden flex justify-end items-center p-4 mt-auto bg-alabaster">
+          {formStep != 0 && (
+            <button
+              onClick={() => setFormStep((prev) => prev - 1)}
+              className="text-coolgray mr-auto cursor-pointer"
+            >
+              Go Back
+            </button>
+          )}
           <button
-            onClick={() => setFormStep((prev) => prev - 1)}
-            className="text-coolgray mr-auto cursor-pointer"
+            onClick={handleSubmit}
+            className="bg-marineblue text-white px-4 py-2 rounded cursor-pointer"
           >
-            Go Back
+            Next Step
           </button>
-        )}
-        <button
-          onClick={handleSubmit}
-          className="bg-marineblue text-white px-4 py-2 rounded cursor-pointer"
-        >
-          Next Step
-        </button>
-      </div>
+        </div>
+      )}
     </div>
   );
 };
