@@ -15,7 +15,7 @@ const Step4 = ({ planType, billing, addonTypes }: Partial<StepsData>) => {
     ? selectedAddons?.reduce((total, addon) => total + addon.priceMonthly, 0)
     : selectedAddons?.reduce((total, addon) => total + addon.priceYearly, 0)
 
-    const totalPrice = planPrice + addonPrice
+    const totalPrice = (planPrice ?? 0) + addonPrice
 
   return (
     <div className="space-y-4">
